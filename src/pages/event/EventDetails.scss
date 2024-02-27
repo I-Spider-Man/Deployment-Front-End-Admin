@@ -1,0 +1,124 @@
+.single {
+  display: flex;
+  width: 100%;
+
+  .singleContainer {
+    flex: 6;
+
+    .top {
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+      position: relative; // Ensure relative positioning for the parent container
+
+      .left {
+        flex: 1;
+        position: relative;
+
+        .editButton {
+          position: absolute;
+          top: 50%; // Position the button vertically at the middle of the parent container
+          transform: translateY(-50%);
+          right: 0;
+          padding: 10px; // Increase padding for better visibility and touch area
+          font-size: 16px; // Increase font size for better readability
+          color: #fff;
+          background-color: #7451f8;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #5c3da0; // Darker shade for hover effect
+          }
+        }
+
+        // Rest of the styles remain the same...
+      }
+
+      .right {
+        flex: 2;
+      }
+    }
+
+    .bottom {
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding-top: 20%;
+      margin-top: 10%;
+    }
+
+    .title {
+      font-size: 16px;
+      color: rgb(223, 50, 50);
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.btn-arrow {
+  color: transparent;
+  display: block;
+  margin: 3rem;
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+
+  background-color: rgba(black, .05);
+
+  transition: all 150ms ease-out;
+
+  &::before,
+  &::after {
+      content: "";
+      display: block;
+      position: absolute;
+          top: 0;
+          left: 0;
+
+      background-color: #606060;
+      
+      transition: all 150ms ease-out;
+  }
+
+  &::before {
+      width: 75%;
+      height: 25%;
+  }
+
+  &::after {
+      width: 25%;
+      height: 75%;
+  }
+
+  &:hover, &:focus {
+      background-color: rgba(black, .1);
+      
+      &::before,
+      &::after {
+          background-color: #404040;
+      }
+  }
+
+  &.btn-arrow-left,
+  &.btn-arrow-right {
+      &::before,
+      &::after {
+          top: 12.5%;
+          left: 12.5%;
+      }
+  }
+
+  &.btn-arrow-left {
+      transform: rotate(-45deg);
+  }
+
+  &.btn-arrow-right {
+      transform: rotate(135deg);
+  }
+}
+.title{
+  color:red
+}
+
+

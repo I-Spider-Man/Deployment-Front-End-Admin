@@ -1,0 +1,28 @@
+.organizer-details-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    .organizer-info {
+      width: 100%;
+      max-width: 400px; /* Adjust as needed */
+      text-align: center;
+  
+      p {
+        margin-bottom: 10px;
+      }
+  
+      strong {
+        font-weight: bold;
+        margin-right: 5px;
+      }
+    }
+  }
+  
