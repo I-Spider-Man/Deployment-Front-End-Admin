@@ -7,6 +7,7 @@ import { Modal, Upload, Button, Space, message } from "antd";
 import { UploadOutlined, LeftOutlined, RightOutlined } from "@ant-design/icons";
 import axios from 'axios';
 import { fetchSpotDataById } from "../../DataBase/Spot";
+import { spotPicUpdate } from "../../PostData";
 
 const SpotDetails = () => {
   const [spotDetails, setSpotDetails] = useState({});
@@ -48,11 +49,12 @@ const SpotDetails = () => {
       });
 
       // Your API endpoint for uploading spot images
-      await axios.post("${BaseUrl}/updateSpotPicture", formData);
+      await spotPicUpdate(formData);
 
       setIsModalVisible(false);
       setFileList([]);
       message.success("Images uploaded successfully!");
+      window.location.reload();
     } catch (error) {
       console.error("Error uploading images:", error);
       message.error("Failed to upload images. Please try again.");

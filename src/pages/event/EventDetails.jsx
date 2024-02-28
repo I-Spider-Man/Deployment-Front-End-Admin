@@ -7,6 +7,7 @@ import { Modal, Upload, Button, Space, message } from "antd";
 import { UploadOutlined, LeftOutlined, RightOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { fetchEventDataByEventId } from "../../DataBase/Event";
+import { eventPicUpdate } from "../../PostData";
 
 const EventDetails = () => {
   const [eventDetails, setEventDetails] = useState({});
@@ -46,13 +47,11 @@ const EventDetails = () => {
       fileList.forEach((file) => {
         formData.append("picture", file.originFileObj);
       });
-
-      // Your API endpoint for uploading event images
-      await axios.post("${BaseUrl}/updateEventPicture", formData);
-
+      await eventPicUpdate(formData);
       setIsModalVisible(false);
       setFileList([]);
       message.success("Images uploaded successfully!");
+      window.location.reload();
     } catch (error) {
       console.error("Error uploading images:", error);
       message.error("Failed to upload images. Please try again.");

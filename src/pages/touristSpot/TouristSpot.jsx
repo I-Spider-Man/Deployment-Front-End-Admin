@@ -9,6 +9,7 @@ import axios from 'axios';
 import { Modal, Upload, Space, message } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { fetchTouristSpotsData } from '../../DataBase/Spot';
+import { spotPicUpdate } from '../../PostData';
 
 function TouristSpot() {
     const [spotRows, setSpotRows] = useState([]);
@@ -67,7 +68,7 @@ function TouristSpot() {
             fileList.forEach(file => {
                 formData.append("picture", file.originFileObj);
             });
-            await axios.post("${BaseUrl}/updateSpotPicture", formData);
+            await spotPicUpdate(formData);
             setIsModalVisible(false);
             setFileList([]);
             setSelectedSpotId(null);

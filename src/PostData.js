@@ -14,7 +14,20 @@ export const postEvent=async (formData)=>{
         return error.response;
     }
 }
-
+export const eventPicUpdate=async (formData)=>{
+    try{
+        await axiosInstance.post(`/updateEventPicture`,formData);
+    }catch(error){
+        console.log(error);
+    }
+}
+export const spotPicUpdate=async (formData)=>{
+    try{
+        await axiosInstance.post(`/updateSpotPicture`,formData);
+    }catch(error){
+        console.log(error);
+    }
+}
 export const postSpot=async (formData)=>{
     try{
         await axiosInstance.post(`/Admin/touristSpot`,formData,{headers:{'Content-Type':'multipart/form-data',},}).then((response)=>{
