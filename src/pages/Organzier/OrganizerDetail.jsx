@@ -11,7 +11,9 @@ const OrganizerDetail = () => {
   const { organizerId } = useParams();
   const [organizerDetails, setOrganizerDetails] = useState({});
   const [groupData, setGroupData] = useState([]);
-  useEffect(async() => {
+  useEffect(() => {
+    async function fetch(){
+      try{
     const data=await fetchOrganizerDataById(organizerId);
     setOrganizerDetails(data);
     try {
@@ -24,6 +26,11 @@ const OrganizerDetail = () => {
     } catch (error) {
       console.error(error);
     }
+      }catch(error){
+        console.log(error);
+      }
+    }
+fetch();
   }
   , [organizerId]);
   console.log(groupData);

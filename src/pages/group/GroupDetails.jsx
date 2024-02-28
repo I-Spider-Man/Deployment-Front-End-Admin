@@ -13,8 +13,10 @@ const GroupDetails = () => {
   const { groupId } = useParams();
   const [groupDetails, setGroupDetails] = useState({});
   const [participantData,setParticipantData]=useState([]);
-  useEffect(async() => {  
-    const data=await fetchGrpDataById(groupId);
+  useEffect(() => {  
+    async function fetch(){
+      try{
+const data=await fetchGrpDataById(groupId);
     const participants=await getAllParticipantsByGroupId(groupId);
     const rowsWithId = participants.map((participant) => ({
       ...participant,
@@ -22,6 +24,12 @@ const GroupDetails = () => {
     }));
     setParticipantData(rowsWithId);
     setGroupDetails(data);
+      }catch(error){
+        console.log(error);
+      }
+      
+    }
+    fetch();
   }, []);
   const participantColumns = [
     { field: "participantId", headerName: "ID", width: 100 },
